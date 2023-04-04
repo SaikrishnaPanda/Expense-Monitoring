@@ -1,6 +1,6 @@
 import "./ExpenseDate.css";
 
-function ExpenseDate(props) {
+const ExpenseDate = (props) => {
   if (!props.date) {
     return <div>Loading...</div>; // iff did not find any date from parents
   }
@@ -14,5 +14,5 @@ function ExpenseDate(props) {
       <div className="expense-date__year">{year}</div>
     </div>
   );
-}
+};
 export default ExpenseDate;
