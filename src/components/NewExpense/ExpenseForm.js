@@ -83,7 +83,7 @@ const ExpenseForm = (props) => {
           <input
             type="date"
             min="2019-01-01"
-            step="2022-01-01"
+            step="2024-01-01"
             value={enterdDate}
             onChange={dateChangeHandler}
           ></input>
