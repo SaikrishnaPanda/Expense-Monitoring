@@ -15,6 +15,18 @@ const Expenses = (props) => {
     return yearTemp === parseInt(filteredYear);
   });
   // console.log(filteredList);
+
+  let expensesContent = <p>No expenses found.</p>;
+  if (expensesContent.length > 0) {
+    filteredList.map((e) => (
+      <ExpenseItem
+        key={e.id}
+        title={e.title}
+        amount={e.amount}
+        date={e.date}
+      ></ExpenseItem>
+    ));
+  }
   return (
     <div>
       <Card className="expenses">
@@ -22,14 +34,18 @@ const Expenses = (props) => {
           selected={filteredYear}
           getSelectedYear={getSelectedYearHandler}
         />
-        {filteredList.map((e) => (
-          <ExpenseItem
-            key={e.id}
-            title={e.title}
-            amount={e.amount}
-            date={e.date}
-          ></ExpenseItem>
-        ))}
+        {/* {filteredList.length === 0 && <p>No expenses found.</p>}
+        {filteredList.length > 0 &&
+          filteredList.map((e) => (
+            <ExpenseItem
+              key={e.id}
+              title={e.title}
+              amount={e.amount}
+              date={e.date}
+            ></ExpenseItem>
+          ))} */}
+        {/* or we can go more leaner by this way below */}
+        {expensesContent}
       </Card>
     </div>
   );
