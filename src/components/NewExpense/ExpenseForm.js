@@ -58,41 +58,46 @@ const ExpenseForm = (props) => {
     setEnteredDate("");
   };
   return (
-    <form onSubmit={onSubmitHandler}>
-      <div className="new-expense__controls">
-        <div className="new-expense__control">
-          <label>Title</label>
-          <input
-            type="text"
-            value={enterdTitle}
-            onChange={titelChangeHandler}
-          ></input>
+    <div>
+      <form onSubmit={onSubmitHandler}>
+        <div className="new-expense__controls">
+          <div className="new-expense__control">
+            <label>Title</label>
+            <input
+              type="text"
+              value={enterdTitle}
+              onChange={titelChangeHandler}
+            ></input>
+          </div>
+          <div className="new-expense__control">
+            <label>Amount</label>
+            <input
+              type="number"
+              min="0.01"
+              step="0.01"
+              value={enterdAmount}
+              onChange={amountChangeHandler}
+            ></input>
+          </div>
+          <div className="new-expense__control">
+            <label>Date</label>
+            <input
+              type="date"
+              min="2019-01-01"
+              step="2024-01-01"
+              value={enterdDate}
+              onChange={dateChangeHandler}
+            ></input>
+          </div>
         </div>
-        <div className="new-expense__control">
-          <label>Amount</label>
-          <input
-            type="number"
-            min="0.01"
-            step="0.01"
-            value={enterdAmount}
-            onChange={amountChangeHandler}
-          ></input>
+        <div className="new-expense__actions">
+          <button type="button" onClick={props.onCancel}>
+            Cancel
+          </button>
+          <button type="submit">Add Expense</button>
         </div>
-        <div className="new-expense__control">
-          <label>Date</label>
-          <input
-            type="date"
-            min="2019-01-01"
-            step="2024-01-01"
-            value={enterdDate}
-            onChange={dateChangeHandler}
-          ></input>
-        </div>
-      </div>
-      <div className="new-expense__actions">
-        <button type="submit">Add Expense</button>
-      </div>
-    </form>
+      </form>
+    </div>
   );
 };
 export default ExpenseForm;
